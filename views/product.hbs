@@ -2,6 +2,16 @@
 
 <h1> {{title}} </h1>
 
-<h2> {{price}} </h2>
+{{#if price}}
+	<h2> {{price}} </h2>
+{{else}}
+	<h2>Price Unavaliable</h2>
+{{/if}}
 
-<img src='{{image}}' alt='image' />
+<h2>Ingredients</h2>
+
+{{#each ingredients}}
+	<p>{{this}}</p>
+{{/each}}
+
+<img src='{{image}}' alt='{{title}}' />
