@@ -17,8 +17,16 @@ const pizzas = [
 		image: '/images/margarita.jpg',
 		ingredients: ['Mozzarella', 'Tomato-sauce', 'Basilicum'],
 	},
-	{ title: 'Veggie', price: '€12', image: '/images/veggie.jpg' },
-	{ title: 'Seafood', price: '€15', image: '/images/seafood.jpg' },
+	{
+		price: '€12',
+		title: 'Veggie',
+		image: '/images/veggie.jpg',
+	},
+	{
+		price: '€15',
+		title: 'Seafood',
+		image: '/images/seafood.jpg',
+	},
 ];
 
 const { data } = pizzas;

@@ -1,16 +1,16 @@
-const { mongoose, Schema } = require('mongoose');
+const { mongoose } = require('mongoose');
+const Movie = require('./models/Movie-model');
 
 mongoose
 	.connect('mongodb://127.0.0.1:27017/warriors-imdb')
-	.then((res) => {
+	.then(async (res) => {
 		console.log('Connected to Database:', res.connections[0].name);
 
-		const movieSchema = new Schema({
-			title: String,
+		const result = await Movie.findOne({
+			genre: 'History',
 		});
 
-		const Movie = mongoose.model('Movie', movieSchema);
-
-		Movie.create({ title: 'My Movie' });
+		console.log('Movie created successfuly:', result);
 	})
-	.catch((err) => console.error('Error connecting to Database:', err));
+
+	.catch((err) => console.error('Error connecting to Database:', err.message));
