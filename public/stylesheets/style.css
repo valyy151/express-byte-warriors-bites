@@ -7,27 +7,12 @@ nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-}
-
-nav {
 	padding-top: 2rem;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 nav a {
 	padding: 0 1rem;
-}
-
-.banner {
-	border: 1px solid #666;
-	background-color: rgb(180, 153, 206);
-	padding: 1rem 0 2rem;
-	margin: 2rem;
-}
-
-#home-image {
-	max-height: 350px;
-	width: auto;
 }
 
 h1 {
@@ -40,16 +25,43 @@ a {
 	color: white;
 }
 
-#pizzasDiv {
-	display: flex;
-	flex-direction: column;
-}
-
 img {
 	width: 30vw;
 	height: 30vh;
 }
 
+#home-image {
+	max-height: 350px;
+	width: auto;
+}
+
+.pizzas-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 10px;
+	width: 18vw;
+	margin: 1vh auto;
+	box-shadow: 1px 0px 5px black;
+	background: rgb(255, 246, 229);
+}
+
+.pizzas-div p {
+	font-weight: 600;
+	font-size: 1.1em;
+	margin: 0.25vh;
+}
+
+.pizzas-div a {
+	color: rgb(62, 141, 190);
+	margin-top: 0.2vh;
+}
+
 .veggie {
 	color: rgb(0, 170, 0);
+}
+
+.smaller-image {
+	width: 15vw;
+	height: 15vh;
 }

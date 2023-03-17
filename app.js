@@ -1,17 +1,16 @@
 const express = require('express');
-const hbs = require('hbs');
-const mongoose = require('mongoose');
-
-const Pizza = require('./models/Pizza-model');
-
 const app = express();
+
+const hbs = require('hbs');
+const Pizza = require('./models/Pizza-model');
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
-
 hbs.registerPartials(__dirname + '/views/partials');
+
+const mongoose = require('mongoose');
 
 mongoose
 	.connect('mongodb://127.0.0.1/warriors-bites')
@@ -20,12 +19,18 @@ mongoose
 
 app.get('/', (req, res) => res.render('home'));
 
-app.get('/pizzas', (req, res) => res.render('pizzas'));
+app.get('/pizzas', (req, res) => {
+	Pizza.find()
+		.then((pizzaArray) => {
+			res.render('product-list', { pizzaArray });
+		})
+		.catch((err) => console.log(err));
+});
 
 app.get('/pizzas/:pizzaName', (req, res) => {
 	Pizza.findOne({ name: req.params.pizzaName })
-		.then((pizzaObject) => {
-			res.render('product', pizzaObject);
+		.then((pizzaArray) => {
+			res.render('product', pizzaArray);
 		})
 		.catch((err) => console.log(err));
 });

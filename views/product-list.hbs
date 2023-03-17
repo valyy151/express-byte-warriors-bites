@@ -1,0 +1,11 @@
+{{#each pizzaArray}}
+	<div class='pizzas-div'>
+		<a href='/pizzas/{{this.name}}'>{{this.name}}</a>
+		<p>€{{this.price}}</p>
+		<img src='{{image}}' alt='name' class='smaller-image' />
+		<p>Ingredients:</p>
+
+		<p>{{this.ingredients}}</p>
+
+	</div>
+{{/each}}
