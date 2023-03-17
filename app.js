@@ -22,31 +22,14 @@ app.get('/', (req, res) => res.render('home'));
 
 app.get('/pizzas', (req, res) => res.render('pizzas'));
 
+app.get('/pizzas/:pizzaName', (req, res) => {
+	Pizza.findOne({ name: req.params.pizzaName })
+		.then((pizzaObject) => {
+			res.render('product', pizzaObject);
+		})
+		.catch((err) => console.log(err));
+});
+
 app.get('/contact', (req, res) => res.render('contact'));
-
-app.get('/pizzas/veggie', (req, res) =>
-	Pizza.findOne({ name: 'Veggie' })
-		.then((veggie) => {
-			console.log(veggie);
-			return res.render('product', veggie);
-		})
-		.catch((err) => console.log(err)),
-);
-
-app.get('/pizzas/seafood', (req, res) =>
-	Pizza.findOne({ name: 'Seafood' })
-		.then((seafood) => {
-			return res.render('product', seafood);
-		})
-		.catch((err) => console.log(err)),
-);
-
-app.get('/pizzas/margarita', (req, res) =>
-	Pizza.findOne({ name: 'Margarita' })
-		.then((margarita) => {
-			return res.render('product', margarita);
-		})
-		.catch((err) => console.log(err)),
-);
 
 app.listen(3000, () => console.log('Server started successfuly on port 3000'));
