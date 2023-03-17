@@ -1,6 +1,6 @@
 <link rel='stylesheet' href='../stylesheets/style.css' />
 
-<h1> {{title}} </h1>
+<h1> {{name}} </h1>
 
 {{#if price}}
 	<h2> {{price}} </h2>
@@ -15,6 +15,10 @@
 	{{/each}}
 {{else}}
 	<h2>Ingredients Unavaliable</h2>
+{{/if}}
+
+{{#if isVeggie}}
+<h3>This Pizza is Veggie</h3>
 {{/if}}
 
 <img src='{{image}}' alt='{{title}}' />
